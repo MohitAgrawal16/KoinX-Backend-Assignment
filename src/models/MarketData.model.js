@@ -2,7 +2,7 @@ import mongoose, {Schema} from "mongoose";
 
 const MarketDataSchema = new Schema({
 
-    coin:{
+    coinType:{
         type: String,
         required: true
     },
