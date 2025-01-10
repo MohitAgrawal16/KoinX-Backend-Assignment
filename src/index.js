@@ -20,11 +20,12 @@ connectDB()
     app.listen(process.env.PORT || 8000, () => {
         console.log(`Server is running on port ${process.env.PORT}`);
     });
-
+ 
     setInterval(() => {
         
         const queryParams='?vs_currency=usd&ids=bitcoin,matic-network,ethereum';
       //  console.log(`${process.env.CoinGecko_API_URL}${queryParams}`);
+      
         fetch(`${process.env.CoinGecko_API_URL}${queryParams}`,{
             method: 'GET',
             headers: {
