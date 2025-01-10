@@ -7,9 +7,25 @@ const getStats = asyncHandler(async (req, res, next) => {
      
     const coin= req.query.coin;
     
-    const stats = await MarketData.find(
-        {coinId: coin}
-    ).sort({createdAt: -1}).limit(1);
+    const stats = await MarketData.aggregate([
+        {
+            $match: {coinId: coin}
+        },
+        {
+            $sort: {createdAt: -1}
+        },
+        {
+            $limit: 1
+        },
+        {
+            $project: {
+                price: 1,
+                marketCap: 1,
+                priceChange24h: 1,  
+                _id: 0
+            }
+        }
+    ])
     
     if(stats.length === 0){
         throw new ApiError(404, "Stats not found");
