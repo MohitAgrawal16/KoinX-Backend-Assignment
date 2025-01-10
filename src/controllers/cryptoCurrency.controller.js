@@ -5,25 +5,25 @@ import { MarketData } from "../models/MarketData.model.js";
 
 const getStats = asyncHandler(async (req, res, next) => {
      
-    const coin= req.params.coin;
+    const coin= req.query.coin;
     
     const stats = await MarketData.find(
         {coinId: coin}
     ).sort({createdAt: -1}).limit(1);
-
-    if(!stats){
-        return next(new ApiError("Stats not found", 404));
+    
+    if(stats.length === 0){
+        throw new ApiError(404, "Stats not found");
     }
 
-    res.status(200).json(new ApiResponse(200, stats));
+    return res.status(200).json(new ApiResponse(200, stats ,"stat found successfully"));
 });
 
 
 const getDeviation = asyncHandler(async (req, res, next) => {
      
-    const coin= req.params.coin;
+    const coin= req.query.coin;
     
-    const stats = await MarketData.aggregate([
+    const deviation = await MarketData.aggregate([
         {
             $match: {coinId: coin}
         },
@@ -39,7 +39,6 @@ const getDeviation = asyncHandler(async (req, res, next) => {
             }
         },
         {
-            // standard deviation
             $group: {
                 _id: null,
                 deviation: {$stdDevPop: "$price"}
@@ -47,11 +46,11 @@ const getDeviation = asyncHandler(async (req, res, next) => {
         }
     ])
 
-    if(!stats){
-        return next(new ApiError("Stats not found", 404));
+    if(deviation.length === 0){
+        throw new ApiError(404 ,"Deviation not found");
     }
 
-    res.status(200).json(new ApiResponse(200, stats));
+    return res.status(200).json(new ApiResponse(200, deviation ,"Deviation found successfully"));
 });
 
 export {getStats , getDeviation};
