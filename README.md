@@ -38,3 +38,9 @@ This route returns the deviation data for the specified cryptocurrency.
 
 **Example Request**:  
 GET /api/deviation?coin=bitcoin
+
+## Project Structure
+
+The project is organized as follows:
+
+src/ ├── controllers/ # Contains the controller logic for handling API requests ├── db/ # Contains database connection and configuration files ├── models/ # Defines the database models and schemas ├── routes/ # Contains route definitions for the API ├── utils/ # Utility functions and helper methods ├── app.js # Initializes and configures the Express application └── index.js # Entry point for the server
