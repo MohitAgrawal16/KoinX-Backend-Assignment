@@ -21,7 +21,7 @@ connectDB()
         console.log(`Server is running on port ${process.env.PORT}`);
     });
 
-    setTimeout(() => {
+    setInterval(() => {
         
         const queryParams='?vs_currency=usd&ids=bitcoin,matic-network,ethereum';
       //  console.log(`${process.env.CoinGecko_API_URL}${queryParams}`);
@@ -36,7 +36,7 @@ connectDB()
             data.forEach((coin) => {
                  
                     MarketData.create({
-                    name: coin.name,
+                    coinId: coin.id,
                     price: coin.current_price,
                     marketCap: coin.market_cap,
                     priceChange24h: coin.price_change_24h
@@ -50,7 +50,7 @@ connectDB()
 
 
     },1000*60*60*2);
-    
+
 }).catch((error) => {
     console.log("DB connection error", error);
 }); 
