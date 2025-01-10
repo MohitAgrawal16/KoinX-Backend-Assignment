@@ -41,6 +41,26 @@ GET /api/deviation?coin=bitcoin
 
 ## Project Structure
 
-The project is organized as follows:
+The project is organized in src folder as follows:
 
-src/ ├── controllers/ # Contains the controller logic for handling API requests ├── db/ # Contains database connection and configuration files ├── models/ # Defines the database models and schemas ├── routes/ # Contains route definitions for the API ├── utils/ # Utility functions and helper methods ├── app.js # Initializes and configures the Express application └── index.js # Entry point for the server
+- **controllers/**  
+  Contains the controller logic for handling API requests.
+
+- **db/**  
+  Contains database connection and configuration files.
+
+- **models/**  
+  Defines the database models and schemas.
+
+- **routes/**  
+  Contains route definitions for the API.
+
+- **utils/**  
+  Provides utility functions and helper methods.
+
+- **app.js**  
+  Initializes and configures the Express application.
+
+- **index.js**  
+  Entry point for the server.
+
