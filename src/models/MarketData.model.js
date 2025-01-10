@@ -4,19 +4,17 @@ const MarketDataSchema = new Schema({
 
     name:{
         type: String,
-        required: true
+        required: true,
+        lowercase: true
     },
     price:{
         type: Number,
-        required: true
     },
     marketCap:{
         type: Number,
-        required: true
     },
     priceChange24h:{
         type: Number,
-        required: true
     },
 
 },{timestamps: true});  
