@@ -39,15 +39,17 @@ This route returns the deviation data for the specified cryptocurrency.
 **Example Request**:  
 GET /api/deviation?coin=bitcoin
 
-##Database
+## Database
 
 MongoDB Atlas is used to deploy database.
 
 The background job add details of three specified coins once every two hours.
-![image](https://github.com/user-attachments/assets/4da85311-2a90-4bae-95f5-3cf9ec2982ef)
-![image](https://github.com/user-attachments/assets/68ed6ed3-e16b-44a2-a0b5-f3a74913d639)
 
-In this image you can see the createdAt field, there is differnce of 2 hours.
+![Screenshot 2025-01-11 132143](https://github.com/user-attachments/assets/6e60d465-78e7-49fd-b44f-5bcda95ef5f9)
+
+![Screenshot 2025-01-11 132203](https://github.com/user-attachments/assets/e6b9538c-009d-45d6-bf8d-d35187bc2a81)
+
+In this image you can see the createdAt field, there is difference of 2 hours.
 
 
 ## Project Structure
