@@ -46,6 +46,7 @@ MongoDB Atlas is used to deploy database.
 The background job add details of three specified coins once every two hours.
 ![image](https://github.com/user-attachments/assets/4da85311-2a90-4bae-95f5-3cf9ec2982ef)
 ![image](https://github.com/user-attachments/assets/68ed6ed3-e16b-44a2-a0b5-f3a74913d639)
+
 In this image you can see the createdAt field, there is differnce of 2 hours.
 
 
